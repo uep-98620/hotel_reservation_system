@@ -1,4 +1,3 @@
-# hotel-reservation-system
 # Hotel Reservation System
 
 Projekt zespołowy w Pythonie.
