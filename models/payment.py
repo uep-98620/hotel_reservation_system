@@ -1,40 +1,38 @@
-import uuid
-from typing import Literal
-from models.reservation import Reservation
-
 class Payment:
     """
     Reprezentuje płatność za konkretną rezerwację.
+
+    Attributes:
+        payment_id (str): Unikalny identyfikator płatności.
+        reservation (Reservation): Obiekt rezerwacji, do której przypisana jest płatność.
+        method (str): Metoda płatności – 'karta' lub 'gotówka'.
+        amount (float): Kwota do zapłaty, obliczona na podstawie rezerwacji.
+        paid (bool): Status płatności – True jeśli zapłacono, False w przeciwnym razie.
     """
 
     def __init__(self, reservation: Reservation, method: Literal["karta", "gotówka"]):
         """
-        Tworzy obiekt płatności.
+        Inicjalizuje obiekt Payment z podaną rezerwacją i metodą płatności.
 
-        :param reservation: Rezerwacja, za którą ma być wykonana płatność.
-        :param method: Metoda płatności – 'karta' albo 'gotówka'.
+        Args:
+            reservation (Reservation): Rezerwacja, za którą ma być wykonana płatność.
+            method (Literal["karta", "gotówka"]): Metoda płatności.
+
+        Raises:
+            TypeError: Jeśli reservation nie jest obiektem klasy Reservation.
+            ValueError: Jeśli metoda płatności nie jest 'karta' ani 'gotówka'.
         """
-
-        if not isinstance(reservation, Reservation):
-            raise TypeError("Musisz podać poprawną rezerwację.")
-
-        if method not in ["karta", "gotówka"]:
-            raise ValueError("Metoda płatności musi być 'karta' albo 'gotówka'.")
-
-        self.payment_id: str = str(uuid.uuid4())
-        self.reservation: Reservation = reservation
-        self.method: str = method
-        self.amount: float = reservation.get_total_price()
-        self.paid: bool = False
+        ...
 
     def confirm_payment(self) -> None:
         """
-        Zaznacza, że płatność została wykonana.
+        Oznacza płatność jako zakończoną (paid = True).
         """
-        self.paid = True
 
     def is_paid(self) -> bool:
         """
-        Zwraca True, jeśli płatność została potwierdzona.
+        Sprawdza, czy płatność została już zrealizowana.
+
+        Returns:
+            bool: True jeśli płatność została potwierdzona, False w przeciwnym razie.
         """
-        return self.paid
