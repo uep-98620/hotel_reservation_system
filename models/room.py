@@ -44,8 +44,3 @@ class Room:
     def __repr__(self) -> str:
         return (f"Pokój(numer='{self.number}', typ_pokoju='{self.room_type}', "
                 f"cena_za_noc={self.price_per_night}, pojemnosc={self.capacity})")
-if __name__ == "__main__":
-    room = Room("101", "single", 150.0, 2)
-    print(room)
-    print(room.get_details())
-    print(repr(room))
