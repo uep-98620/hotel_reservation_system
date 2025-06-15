@@ -1,24 +1,24 @@
 from typing import Dict, Any
 
 class Room:
-    """Represents a hotel room.
+    """Reprezentuje pokój hotelowy.
 
-    Attributes:
-        number (str): The unique room number.
-        room_type (str): The type of the room (e.g., 'single', 'double', 'suite').
-        price_per_night (float): The cost for one night stay in this room.
-        capacity (int): The maximum number of guests the room can accommodate.
+    Atrybuty:
+        number (str): Numer pokoju.
+        room_type (str): Typ pokoju (np. single, double, suite).
+        price_per_night (float): Cena za jedną noc.
+        capacity (int): Maksymalna liczba gości w pokoju.
     """
     def __init__(self, number: str, room_type: str, price_per_night: float, capacity: int):
-        """Initializes a Room object."""
-        if not isinstance(number, str) or not number:
-            raise ValueError("Room number must be a non-empty string.")
-        if not isinstance(room_type, str) or not room_type:
-            raise ValueError("Room type must be a non-empty string.")
+        """Inicjalizuje obiekt Room."""
+        if not number or not isinstance(number, str):
+            raise ValueError("Numer pokoju nie może być pusty.")
+        if not room_type or not isinstance(room_type, str):
+            raise ValueError("Typ pokoju nie może być pusty.")
         if not isinstance(price_per_night, (int, float)) or price_per_night <= 0:
-            raise ValueError("Price per night must be a positive number.")
+            raise ValueError("Cena za noc musi być liczbą dodatnią.")
         if not isinstance(capacity, int) or capacity <= 0:
-            raise ValueError("Capacity must be a positive integer.")
+            raise ValueError("Pojemność pokoju musi być liczbą całkowitą większą od zera.")
 
         self.number: str = number
         self.room_type: str = room_type
@@ -26,24 +26,26 @@ class Room:
         self.capacity: int = capacity
 
     def get_details(self) -> Dict[str, Any]:
-        """Returns the room's details as a dictionary.
+        """Zwraca szczegóły pokoju.
 
-        Returns:
-            Dict[str, Any]: A dictionary containing room attributes.
+        Zwraca:
+            Dict[str, Any]: Słownik z numerem, typem, ceną i pojemnością pokoju.
         """
         return {
-            "number": self.number,
-            "room_type": self.room_type,
-            "price_per_night": self.price_per_night,
-            "capacity": self.capacity,
+            "numer": self.number,
+            "typ_pokoju": self.room_type,
+            "cena_za_noc": self.price_per_night,
+            "pojemnosc": self.capacity,
         }
 
     def __str__(self) -> str:
-        """Returns a string representation of the room."""
-        return (f"Room {self.number} ({self.room_type}, Capacity: {self.capacity}, "
-                f"Price: ${self.price_per_night:.2f}/night)")
+        return f"Pokój: {self.number} ({self.room_type}), {self.capacity} os., {self.price_per_night:.2f} zł/noc"
 
     def __repr__(self) -> str:
-        """Returns an official string representation of the room."""
-        return (f"Room(number='{self.number}', room_type='{self.room_type}', "
-                f"price_per_night={self.price_per_night}, capacity={self.capacity})")
+        return (f"Pokój(numer='{self.number}', typ_pokoju='{self.room_type}', "
+                f"cena_za_noc={self.price_per_night}, pojemnosc={self.capacity})")
+if __name__ == "__main__":
+    room = Room("101", "single", 150.0, 2)
+    print(room)
+    print(room.get_details())
+    print(repr(room))
