@@ -1,5 +1,5 @@
 import unittest
-from guest import Guest
+from models.guest import Guest
 
 class GuestTest(unittest.TestCase):
     """ Test dla klasy Guest - weryfikuje poprawność tworzenia danych o gościu oraz działania metod klasy.  """
