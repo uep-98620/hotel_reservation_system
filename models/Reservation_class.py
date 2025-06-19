@@ -81,7 +81,7 @@ class Reservation:
         }
 
     def __str__(self) -> str:
-                (f"Rezerwacja {self.reservation_id}: {self.guest.get_full_name()} - "
+        return (f"Rezerwacja {self.reservation_id}: {self.guest.get_full_name()} - "
                 f"Pokój {self.room.number} od {self.check_in} do {self.check_out}")
 
     def __repr__(self) -> str:
