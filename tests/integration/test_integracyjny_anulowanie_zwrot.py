@@ -7,8 +7,23 @@ from main import (hotel, guests, guest_reservations, payments,
                   cancel_reservation, refund_payment, confirm_payment)
 
 class TestIntegracyjnyAnulowanie(unittest.TestCase):
+    """Test integracyjny sprawdzający pełny proces: dodanie pokoju, rejestracja gościa,
+        dokonanie rezerwacji, opłacenie jej, anulowanie rezerwacji oraz zwrot płatności."""
+
     @patch('builtins.input')
     def test_anulowanie_i_zwrot(self, mock_input):
+        """Test przebiega przez następujące kroki:
+        dodanie pokoju do hotelu,
+        rejestracja nowego gościa,
+        utworzenie rezerwacji dla gościa,
+        potwierdzenie płatności,
+        anulowanie rezerwacji,
+        zwrot środków.
+
+        Każdy etap wykorzystuje symulację danych wejściowych, a po wykonaniu operacji następuje weryfikacja,
+        czy system zareagował zgodnie z oczekiwanym przebiegiem logiki biznesowej.
+        """
+
         dzisiaj = date.today()
         jutro = dzisiaj + timedelta(days=1)
 

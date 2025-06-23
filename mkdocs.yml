@@ -1,0 +1,77 @@
+site_name: System Rezerwacji Hotelowej
+site_description: "Dokumentacja systemu rezerwacji hotelowej"
+site_author: "Student Informatyki"
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  language: pl
+  font:
+    text: "IBM Plex Sans"
+    code: "Fira Code"
+  palette:
+    - scheme: default
+      primary: grey blue
+      accent: red
+      toggle:
+        icon: material/weather-night
+        name: Zmień tryb
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+
+nav:
+  - Strona główna: index.md
+  - Struktura projektu:
+      - Przegląd struktury: reference/index_klasy.md
+      - Klasy danych:
+          - Guest: reference/models/guest.md
+          - Room: reference/models/room.md
+          - Reservation: reference/models/reservation.md
+          - Hotel: reference/models/hotel.md
+          - Payment: reference/models/payment.md
+      - Logika działania programu: reference/services/hotel_service.md
+      - Główny program (CLI): reference/main.md
+  - Testy:
+      - Przegląd testów: reference/tests/index_test.md
+      - Testy jednostkowe (pojedyncze klasy):
+          - Guest: reference/tests/unit/Test_guest_class.md
+          - Room: reference/tests/unit/test_room.md
+          - Hotel: reference/tests/unit/test_hotel.md
+          - Payment: reference/tests/unit/test_payment.md
+          - Reservation: reference/tests/unit/test_reservation.md
+      - Testy integracyjne (działanie programu):
+          - Rezerwacja i płatność: reference/tests/integration/test_integracyjny_rezerwacja_platnosc.md
+          - Anulowanie i zwrot: reference/tests/integration/test_integracyjny_anulowanie_zwrot.md
+          - Dostępność i eksport: reference/tests/integration/test_integracyjny_dostepnosc_eksport.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["."]
+          options:
+            docstring_style: google
+            merge_init_into_class: true
+            group_by_category: true
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - codehilite:
+      guess_lang: false
+  - tables
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/uep-98620/hotel_reservation_system
