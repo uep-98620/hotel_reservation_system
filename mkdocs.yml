@@ -1,6 +1,7 @@
 site_name: System Rezerwacji Hotelowej
 site_description: "Dokumentacja systemu rezerwacji hotelowej"
-site_author: "Student Informatyki"
+site_author: "Student UEP"
+site_url: https://uep-98620.github.io/hotel_reservation_system
 
 theme:
   name: material
