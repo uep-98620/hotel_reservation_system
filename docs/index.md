@@ -26,19 +26,10 @@ Dokumentacja zawiera opisy struktury projektu, klas danych, logiki działania or
 
 ## Uruchomienie projektu
 
-1. Zainstaluj zależności:
-   ```bash
-   pip install -r requirements.txt
-   ```
+Upewnij się, że jesteś w katalogu głównym projektu i uruchom aplikację:
 
-2. Uruchom aplikację:
    ```bash
    python main.py
-   ```
-
-3. Otwórz dokumentację lokalnie:
-   ```bash
-   mkdocs serve
    ```
 
 ---
