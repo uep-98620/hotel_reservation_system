@@ -52,4 +52,4 @@ Dokumentacja zawiera opisy struktury projektu, klas danych, logiki działania or
 
 ---
 
-_Dokumentacja opracowana przez grupę tworzącą projekt.
+Dokumentacja opracowana przez grupę tworzącą projekt.

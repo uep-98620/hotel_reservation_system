@@ -12,12 +12,19 @@ theme:
     text: "IBM Plex Sans"
     code: "Fira Code"
   palette:
-    - scheme: default
-      primary: grey blue
-      accent: red
-      toggle:
-        icon: material/weather-night
-        name: Zmień tryb
+  - scheme: default
+    primary: grey blue
+    accent: red
+    toggle:
+      icon: material/weather-night
+      name: Ciemny motyw
+    media: false
+  - scheme: slate
+    primary: grey blue
+    accent: red
+    toggle:
+      icon: material/weather-sunny
+      name: Jasny motyw
   features:
     - navigation.tabs
     - navigation.indexes
@@ -39,13 +46,13 @@ nav:
       - Główny program (CLI): reference/main.md
   - Testy:
       - Przegląd testów: reference/tests/index_test.md
-      - Testy jednostkowe (pojedyncze klasy):
+      - Testy jednostkowe:
           - Guest: reference/tests/unit/Test_guest_class.md
           - Room: reference/tests/unit/test_room.md
           - Hotel: reference/tests/unit/test_hotel.md
           - Payment: reference/tests/unit/test_payment.md
           - Reservation: reference/tests/unit/test_reservation.md
-      - Testy integracyjne (działanie programu):
+      - Testy integracyjne:
           - Rezerwacja i płatność: reference/tests/integration/test_integracyjny_rezerwacja_platnosc.md
           - Anulowanie i zwrot: reference/tests/integration/test_integracyjny_anulowanie_zwrot.md
           - Dostępność i eksport: reference/tests/integration/test_integracyjny_dostepnosc_eksport.md
