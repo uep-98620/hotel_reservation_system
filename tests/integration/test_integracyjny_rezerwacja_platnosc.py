@@ -8,8 +8,17 @@ from main import (
 )
 
 class TestIntegracyjnyRezerwacja(unittest.TestCase):
+    """ Test integracyjny sprawdzający proces rezerwacji oraz płatności:
+        dodanie pokoju, rejestracja gościa, dokonanie rezerwacji oraz potwierdzenie płatności. """
+
     @patch('builtins.input')
     def test_rezerwacja_i_platnosc(self, mock_input):
+        """ Test obejmuje:
+                dodanie pokoju i weryfikację jego obecności w systemie,
+                rejestrację gościa,
+                dokonanie rezerwacji z przypisaną płatnością,
+                potwierdzenie płatności i zmianę jej statusu. """
+
         dzisiaj = date.today()
         jutro = dzisiaj + timedelta(days=1)
 

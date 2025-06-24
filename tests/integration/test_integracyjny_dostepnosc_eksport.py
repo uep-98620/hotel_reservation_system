@@ -9,8 +9,20 @@ from main import (
 )
 
 class TestIntegracyjnyDostepnoscEksport(unittest.TestCase):
+    """ Test integracyjny sprawdzający pełny przebieg rezerwacji:
+        od dodania pokoju i rejestracji gościa, przez dokonanie i opłacenie rezerwacji,
+        aż po sprawdzenie dostępności pokoi, historii płatności oraz eksport danych do pliku CSV. """
+
     @patch('builtins.input')
     def test_dostepnosc_eksport(self, mock_input):
+        """ Test obejmuje:
+                dodanie pokoju i gościa,
+                rezerwację i potwierdzenie płatności,
+                sprawdzenie w jakim pokoju przebywa gość,
+                podgląd rezerwacji pokoju i płatności,
+                eksport danych do pliku .csv,
+                sprawdzenie dostępnych pokoi w zadanym przedziale. """
+
         dzisiaj = date.today()
         jutro = dzisiaj + timedelta(days=1)
 
